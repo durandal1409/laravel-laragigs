@@ -18,8 +18,20 @@ use App\Models\Listing;
 //all listings
 Route::get('/', [LIstingController::class, 'index']);
 
-//single listing
-Route::get('/listings/{listing}', [LIstingController::class, 'show']);
-
 // create listing
 Route::get('listings/create', [LIstingController::class, 'create']);
+
+// store new listing data
+Route::post('listings', [LIstingController::class, 'store']);
+
+//edit listing
+Route::get('/listings/{listing}/edit', [LIstingController::class, 'edit']);
+
+//submit edited listing
+Route::put('/listings/{listing}', [LIstingController::class, 'update']);
+
+//delete listing
+Route::delete('/listings/{listing}', [LIstingController::class, 'destroy']);
+
+//single listing
+Route::get('/listings/{listing}', [LIstingController::class, 'show']);
